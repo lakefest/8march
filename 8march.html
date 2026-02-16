@@ -215,6 +215,7 @@ h1{font-size:24px;}
 <p class="hint">Нажми на сердце 💕</p>
 </div>
 
+<!-- Для музыки нужен файл music.mp3 в той же папке. Если его нет, уберите этот блок -->
 <audio id="music" loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -337,7 +338,8 @@ let screen=document.getElementById("startScreen");
 screen.style.opacity="0";
 setTimeout(()=>{screen.style.display="none";},1000);
 document.getElementById("content").style.display="block";
-music.play();
+// Если музыка не нужна или файла нет, закомментируйте следующую строку
+if(music) music.play();
 heartExplosion();
 startEffects();
 }
