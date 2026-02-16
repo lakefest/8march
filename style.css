@@ -1,0 +1,198 @@
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:radial-gradient(circle at top,#ffc0e0,#ff69b4,#c71585);
+    overflow-x:hidden;
+    color:white;
+    text-align:center;
+}
+
+/* ===== СТАРТ ===== */
+
+#startScreen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at center,#ffb6d9,#ff1493,#c71585);
+    z-index:1000;
+    transition:1s;
+}
+
+.main-title{
+    font-size:50px;
+    margin-bottom:40px;
+    text-shadow:0 0 30px white;
+}
+
+.big-heart{
+    font-size:120px;
+    cursor:pointer;
+    animation:pulseHeart 1.5s infinite;
+    transition:0.3s;
+    filter:drop-shadow(0 0 30px white);
+}
+
+.big-heart:hover{
+    transform:scale(1.2);
+    filter:drop-shadow(0 0 60px white);
+}
+
+@keyframes pulseHeart{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+.hint{
+    margin-top:20px;
+    font-size:20px;
+    opacity:0.8;
+    animation:blink 2s infinite;
+}
+
+@keyframes blink{
+    0%,100%{opacity:0.5;}
+    50%{opacity:1;}
+}
+
+/* ===== ЗАГОЛОВКИ ===== */
+
+h1{
+    font-size:36px;
+    margin-top:60px;
+    text-shadow:0 0 30px white,0 0 60px hotpink;
+}
+
+/* ===== КНОПКИ ===== */
+
+button{
+    padding:12px 25px;
+    font-size:16px;
+    background:white;
+    border:none;
+    border-radius:50px;
+    color:#ff1493;
+    cursor:pointer;
+    box-shadow:0 0 40px white;
+    transition:0.3s;
+    margin:10px;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 60px hotpink;
+}
+
+.auto-active{
+    background:#ff1493;
+    color:white;
+    box-shadow:0 0 60px white,0 0 100px hotpink;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 20px white;}
+    50%{box-shadow:0 0 60px hotpink;}
+    100%{box-shadow:0 0 20px white;}
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.card{
+    width:90%;
+    max-width:500px;
+    margin:40px auto;
+    padding:30px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.15);
+    box-shadow:0 0 40px hotpink;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 80px white;
+}
+
+.card img{
+    width:100%;
+    border-radius:25px;
+    border:6px solid hotpink;
+    box-shadow:0 0 40px white;
+    transition:0.4s;
+}
+
+.card img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 100px white,0 0 120px hotpink;
+}
+
+.teacher{
+    background:linear-gradient(45deg,#ff69b4,#ff1493);
+    box-shadow:0 0 80px white;
+}
+
+.general{
+    font-size:20px;
+    line-height:1.6;
+}
+
+/* ===== СЛАЙДЕР ===== */
+
+.slide{display:none;}
+.active{display:block;}
+.controls{margin-top:20px;}
+
+/* ===== ЭФФЕКТЫ ===== */
+
+.heart{
+    position:fixed;
+    width:20px;
+    height:20px;
+    background:pink;
+    transform:rotate(45deg);
+}
+.heart:before,.heart:after{
+    content:'';
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:pink;
+    border-radius:50%;
+}
+.heart:before{top:-10px;}
+.heart:after{left:-10px;}
+
+.rose{
+    position:fixed;
+    top:-50px;
+    font-size:25px;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    to{transform:translateY(110vh);}
+}
+
+.sparkle{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    animation:spark 1s linear forwards;
+}
+@keyframes spark{
+    to{transform:translateY(100px);opacity:0;}
+}
+
+@media(max-width:600px){
+    .main-title{font-size:32px;}
+    .big-heart{font-size:90px;}
+    h1{font-size:24px;}
+    .general{font-size:16px;}
+}
