@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С 8 Марта 💖 9 И</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:radial-gradient(circle at top,#ffc0e0,#ff69b4,#c71585);
+overflow-x:hidden;
+color:white;
+text-align:center;
+}
+
+/* ===== СТАРТ ===== */
+
+#startScreen{
+position:fixed;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at center,#ffb6d9,#ff1493,#c71585);
+z-index:1000;
+transition:1s;
+}
+
+.main-title{
+font-size:50px;
+margin-bottom:40px;
+text-shadow:0 0 30px white;
+}
+
+.big-heart{
+font-size:120px;
+cursor:pointer;
+animation:pulseHeart 1.5s infinite;
+transition:0.3s;
+filter:drop-shadow(0 0 30px white);
+}
+
+.big-heart:hover{
+transform:scale(1.2);
+filter:drop-shadow(0 0 60px white);
+}
+
+@keyframes pulseHeart{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+.hint{
+margin-top:20px;
+font-size:20px;
+opacity:0.8;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:0.5;}
+50%{opacity:1;}
+}
+
+/* ===== ЗАГОЛОВКИ ===== */
+
+h1{
+font-size:36px;
+margin-top:60px;
+text-shadow:0 0 30px white,0 0 60px hotpink;
+}
+
+/* ===== КНОПКИ ===== */
+
+button{
+padding:12px 25px;
+font-size:16px;
+background:white;
+border:none;
+border-radius:50px;
+color:#ff1493;
+cursor:pointer;
+box-shadow:0 0 40px white;
+transition:0.3s;
+margin:10px;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 60px hotpink;
+}
+
+.auto-active{
+background:#ff1493;
+color:white;
+box-shadow:0 0 60px white,0 0 100px hotpink;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 20px white;}
+50%{box-shadow:0 0 60px hotpink;}
+100%{box-shadow:0 0 20px white;}
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.card{
+width:90%;
+max-width:500px;
+margin:40px auto;
+padding:30px;
+border-radius:30px;
+background:rgba(255,255,255,0.15);
+box-shadow:0 0 40px hotpink;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 80px white;
+}
+
+.card img{
+width:100%;
+border-radius:25px;
+border:6px solid hotpink;
+box-shadow:0 0 40px white;
+transition:0.4s;
+}
+
+.card img:hover{
+transform:scale(1.05);
+box-shadow:0 0 100px white,0 0 120px hotpink;
+}
+
+.teacher{
+background:linear-gradient(45deg,#ff69b4,#ff1493);
+box-shadow:0 0 80px white;
+}
+
+.general{
+font-size:20px;
+line-height:1.6;
+}
+
+/* ===== СЛАЙДЕР ===== */
+
+.slide{display:none;}
+.active{display:block;}
+.controls{margin-top:20px;}
+
+/* ===== ЭФФЕКТЫ ===== */
+
+.heart{
+position:fixed;
+width:20px;
+height:20px;
+background:pink;
+transform:rotate(45deg);
+}
+.heart:before,.heart:after{
+content:'';
+position:absolute;
+width:20px;
+height:20px;
+background:pink;
+border-radius:50%;
+}
+.heart:before{top:-10px;}
+.heart:after{left:-10px;}
+
+.rose{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+
+.sparkle{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+animation:spark 1s linear forwards;
+}
+@keyframes spark{
+to{transform:translateY(100px);opacity:0;}
+}
+
+@media(max-width:600px){
+.main-title{font-size:32px;}
+.big-heart{font-size:90px;}
+h1{font-size:24px;}
+.general{font-size:16px;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="startScreen">
+<h1 class="main-title">С 8 Марта 💖 9 И</h1>
+<div class="big-heart" onclick="start()">💗</div>
+<p class="hint">Нажми на сердце 💕</p>
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="content" style="display:none;">
+
+<div class="card teacher">
+<img src="https://i.ibb.co/Jwnk71G7/IMG-4514.jpg">
+<h2>Демиденко Ирина Викторовна 👑</h2>
+<p>
+Спасибо за поддержку, заботу и терпение ❤️  
+Вы делаете наш класс настоящей семьёй 🌸
+</p>
+</div>
+
+<div class="card general">
+<h2>💐 С 8 Марта, наши прекрасные девочки 💐</h2>
+<p>
+Пусть этот день будет наполнен улыбками и теплом 💕  
+Пусть каждая из вас сияет, мечтает и достигает вершин ✨  
+Вы самые красивые, умные и невероятные 💖
+</p>
+</div>
+
+<h1>✨ 9 И — лучшие ✨</h1>
+
+<!-- ВСЕ ДЕВОЧКИ -->
+
+<div class="slide active card">
+<img src="https://i.ibb.co/tTP0yL4S/IMG-4505.jpg">
+<h2>Лиза Важнаткина</h2>
+<p>Сияешь ярче всех ✨</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/YKbPvVv/IMG-4506.jpg">
+<h2>Катя Истягина</h2>
+<p>Нежность и стиль 💕</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/Wp0mgH7p/IMG-4507.jpg">
+<h2>Настя Пострелова</h2>
+<p>Твоя улыбка вдохновляет 🌷</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/HTNQ1KSV/IMG-4508.jpg">
+<h2>Варя Постникова</h2>
+<p>Свет и энергия 🌟</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/nMnjyV2q/IMG-4509.jpg">
+<h2>Жесткова Алена</h2>
+<p>Очарование и доброта 💗</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/8LQ7kbp7/IMG-4510.jpg">
+<h2>Сторогина София</h2>
+<p>Грация и уверенность 🌸</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/tTZXq4KC/IMG-4511.jpg">
+<h2>Морозова Даша</h2>
+<p>Сияющая улыбка 😊</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/Lh5Gg7TV/IMG-4512.jpg">
+<h2>Котелкова Лера</h2>
+<p>Ты вдохновляешь ✨</p>
+</div>
+
+<div class="slide card">
+<img src="https://i.ibb.co/mCKtybJJ/IMG-4513.jpg">
+<h2>Черненко Карина</h2>
+<p>Настоящая звезда 💫</p>
+</div>
+
+<div class="controls">
+<button onclick="prev()">⬅</button>
+<button onclick="next()">➡</button>
+<button id="autoBtn" onclick="toggleAuto()">💌 Автоперелистывание</button>
+</div>
+
+</div>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let current=0;
+let autoSlide=null;
+let music=document.getElementById("music");
+let autoBtn=document.getElementById("autoBtn");
+
+function showSlide(index){
+slides[current].classList.remove("active");
+current=(index+slides.length)%slides.length;
+slides[current].classList.add("active");
+}
+
+function next(){showSlide(current+1);}
+function prev(){showSlide(current-1);}
+
+function toggleAuto(){
+if(autoSlide){
+clearInterval(autoSlide);
+autoSlide=null;
+autoBtn.classList.remove("auto-active");
+}else{
+autoSlide=setInterval(next,5000);
+autoBtn.classList.add("auto-active");
+}
+}
+
+function start(){
+let screen=document.getElementById("startScreen");
+screen.style.opacity="0";
+setTimeout(()=>{screen.style.display="none";},1000);
+document.getElementById("content").style.display="block";
+music.play();
+heartExplosion();
+startEffects();
+}
+
+function heartExplosion(){
+for(let i=0;i<60;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.style.left="50%";
+heart.style.top="50%";
+let x=(Math.random()-0.5)*800;
+let y=(Math.random()-0.5)*800;
+heart.animate([
+{transform:"translate(0,0) rotate(45deg)"},
+{transform:`translate(${x}px,${y}px) rotate(45deg)`}
+],{duration:1000});
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),1000);
+}
+}
+
+function startEffects(){
+setInterval(()=>{
+let rose=document.createElement("div");
+rose.className="rose";
+rose.innerHTML="🌹";
+rose.style.left=Math.random()*100+"vw";
+rose.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(rose);
+setTimeout(()=>rose.remove(),10000);
+},800);
+
+setInterval(()=>{
+let s=document.createElement("div");
+s.className="sparkle";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),1000);
+},200);
+}
+</script>
+
+</body>
+</html>
