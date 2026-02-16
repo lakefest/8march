@@ -132,6 +132,12 @@ button:hover{
     box-shadow:0 0 100px white,0 0 120px hotpink;
 }
 
+.card p {
+    text-align: left;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
 .teacher{
     background:linear-gradient(45deg,#ff69b4,#ff1493);
     box-shadow:0 0 80px white;
